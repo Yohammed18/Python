@@ -1,0 +1,6 @@
+upper() - use uppercase
+lower() - use lowercase
+split() - separate into parts (list)
+join() - put items together
+find() - fins a sub-string
+replace() - replace a sub-string
