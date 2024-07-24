@@ -1,5 +1,6 @@
 # Set is a collection of items. Let me take you back to your elementary or high school Mathematics lesson. The Mathematics definition of a set can be applied also in Python. Set is a collection of unordered and un-indexed distinct elements. In Python set is used to store unique items, and it is possible to find the union, intersection, difference, symmetric difference, subset, super set and disjoint set among sets.
 # sets
+# You can create a set with the built-in set() func or use the {} but an initial item must be entered
 it_companies = {'Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon'}
 # Find the length of the set it_companies
 print(f"Set length: {len(it_companies)}")
