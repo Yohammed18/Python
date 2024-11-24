@@ -2,4 +2,7 @@
 __pycache__/
 
 # Optionally, ignore __pycache__ directories in specific subdirectories
-Day12/__pycache__/module.cpython-312.pyc
+
+
+.idea
+Day12\__pycache__
