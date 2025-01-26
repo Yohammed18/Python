@@ -5,4 +5,5 @@ __pycache__/
 
 
 .idea
-Day12\__pycache__
+Day12/__pycache__
+virtualai/env
