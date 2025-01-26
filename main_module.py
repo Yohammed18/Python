@@ -1,4 +1,4 @@
 
 file = open('tempfile.txt', 'r')
 
-print(file.readline())
+print(file.read())

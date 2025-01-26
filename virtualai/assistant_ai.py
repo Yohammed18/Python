@@ -7,9 +7,16 @@ import webbrowser
 import datetime
 import wikipedia
 
-# Hear the microphone and return the audio as text
-def convert_audio_into_text():
-    # Store recognizer in variable
+engine = pyttsx3.init()
+voice = engine.getProperty('voices')
+engine.setProperty('voice', voice[1].id)
+
+def greeting():
+    engine.say("Good morning Mohammed.\nWelcome to your virtual application. My name is Barbara and I will be your Virtual Assistance")
+    engine.runAndWait()
+
+def tranform_audio_into_text():
+        # Store recognizer in variable
     r = sr.Recognizer()
     
     # Set microphone
@@ -25,7 +32,7 @@ def convert_audio_into_text():
         
         try:
             # Recognize audio (replace Azure with Google for default recognizer)
-            request = r.recognize_google(audio, language="en-US")
+            request = r.recognize_google(audio, language="en-US").lower()
             
             # Print the recognized text
             print("You said: " + request)
@@ -45,38 +52,29 @@ def convert_audio_into_text():
             print(f"Service Error: {e}")
             return 'I am still waiting'
 
-# function so the assitant can be heard
 def speak(message):
-    # start engine of pyttsx3
-    engine = pyttsx3.init()
-    
-    # change voice from man to women
-    voice = engine.getProperty('voices')
-    engine.setProperty('voice', voice[0].id)
-    
-    # deliver message
     engine.say(message)
     engine.runAndWait()
     engine.stop()
-    
-    
-def speak_volume():
-    # initiliaze engine voice
-    pass
 
-engine = pyttsx3.init()    
-# see all the voices available
-for voice in engine.getProperty('voices'):
-    print(voice.id)
-
-speak_volume()    
-
-# if __name__ == '__main__':
-#     #convert_audio_into_text()
-#     file = open('../tempfile.txt', 'r')
+def my_assistant():
+    greeting()
     
-#     message =file.read()
-#     print(message)
+    # pointer 
+    end_ai = True
     
-#     speak(message)
+    while end_ai:
+        # activate Microphone and save request
+        my_request = tranform_audio_into_text()
+        
+        if 'open youtube' in my_request:
+            speak('Sure, let me open up Youtube on your Chrome.')
+            webbrowser.open('https://www.youtube.com')
+        elif 'open browser':
+            speak('Of course, I am on it.')
+            webbrowser.open('https://www.google.com')
+        else:
+            speak("No request were made")
 
+
+my_assistant()
