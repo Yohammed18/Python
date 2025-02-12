@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task lists</title>
+</head>
+
+<body>
+    {% if request.user.is_authenticated %}
+    <p>{{ request.user}}</p>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Logout" />
+    </form>
+
+    <hr />
+
+    <div style="display: grid; place-items: center;">
+        <h1>Task List</h1>
+        <a href="{% url 'create-task' %}" style="padding: 10px;">Create Task</a>
+
+
+        <table border="1px solid black">
+            {% if count > 0 %}
+            <tr>
+                <th>Items</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% endif %}
+            {% for task in tasks %}
+            <tr>
+                <td>{{task}}</td>
+                <td>
+                    <a href="{% url 'task' task.id %}">See Detail</a>
+                </td>
+                <td>
+                    <a href="{% url 'edit-task' task.id %}">Edit</a>
+                </td>
+                <td>
+                    <a href="{% url 'delete-task' task.id %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <h3 style="color: red;">There are no items in this list</h3>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+
+    {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+env
+website/base/__pycache__
+website/base/migrations
+website/website/__pycache__
+db.sqlite3
+base/migrations
+base/migrations

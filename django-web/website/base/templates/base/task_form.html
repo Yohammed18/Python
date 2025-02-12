@@ -1,0 +1,12 @@
+<section>
+    <h1>Task Form</h1>
+    <a href="{% url 'tasks' %}">
+        <button>Go Back</button>
+    </a>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p}}
+        <input type="submit" value="Send" />
+    </form>
+</section>

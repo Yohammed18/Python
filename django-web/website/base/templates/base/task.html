@@ -1,0 +1,9 @@
+<section style="text-align: center; max-width: 500px;">
+    <h1>Task</h1>
+    <p>Title: {{ task.title }}</p>
+    <p>Descirption: {{ task.description }}</p>
+    <br>
+    <a href="{% url 'tasks' %}">
+        <button>Go Back</button>
+    </a>
+</section>
