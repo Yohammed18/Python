@@ -1,0 +1,33 @@
+### Api Calls
+
+GET http://127.0.0.1:5000/stores
+
+### Welcome page
+GET http://127.0.0.1:5000/
+
+### Create a new store
+POST http://127.0.0.1:5000/store
+Content-Type: application/json
+
+{
+    "name": "McDonalds",
+    "items": [
+        {
+            "name": "book",
+            "price": 12.99
+        }
+    ]
+}
+
+
+### Create a new item
+POST http://127.0.0.1:5000/Walgreens/item
+Content-Type: application/json
+
+{
+    "name": "milk",
+    "price": 3.99
+}
+
+### get home page
+GET  http://127.0.0.1:5000/home
